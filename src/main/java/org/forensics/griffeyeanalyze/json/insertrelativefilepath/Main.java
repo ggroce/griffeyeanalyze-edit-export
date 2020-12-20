@@ -2,22 +2,21 @@ package org.forensics.griffeyeanalyze.json.insertrelativefilepath;
 
 import javax.json.Json;
 import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParserFactory;
 import java.io.*;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 
 public class Main
 {
     public static void main( String[] args ) throws IOException {
-//        URL url = new URL("https://jsonplaceholder.typicode.com/users");
-        var factory = Json.createParserFactory(null);
+        JsonParserFactory factory = Json.createParserFactory(null);
         String md5 = null;
         File inputFile = null;
 
         if ((args.length > 0) && (args[0] != null) && (!args[0].isEmpty())) {
             String filePath = args[0];
-            inputFile = new File(filePath);
+            inputFile = new File(filePath).getAbsoluteFile();
             if (!inputFile.exists()) {
                 System.out.println("Invalid filename and/or path");
                 return;
