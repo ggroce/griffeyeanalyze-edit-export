@@ -2,23 +2,36 @@ package org.forensics.griffeyeanalyze.json.insertrelativefilepath;
 
 import javax.json.Json;
 import javax.json.stream.JsonParser;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
-public class App
+public class Main
 {
     public static void main( String[] args ) throws IOException {
 //        URL url = new URL("https://jsonplaceholder.typicode.com/users");
         var factory = Json.createParserFactory(null);
         String md5 = null;
+        File inputFile = null;
 
-//        try (InputStream in = url.openStream(); JsonParser parser = Json.createParser(in)) {
-        try (FileInputStream is = new FileInputStream("C:\\report\\export.json");
-             FileWriter outputFile = new FileWriter("C:\\report\\output.json");
+        if ((args.length > 0) && (args[0] != null) && (!args[0].isEmpty())) {
+            String filePath = args[0];
+            inputFile = new File(filePath);
+            if (!inputFile.exists()) {
+                System.out.println("Invalid filename and/or path");
+                return;
+            }
+        } else {
+            System.out.println("Must enter input file name or full path");
+            return;
+        }
+
+        String outputFileStr = inputFile.getParentFile() + "\\" +
+                inputFile.getName().replaceFirst("[.][^.]+$", "") + "_output.json";
+
+        try (FileInputStream is = new FileInputStream(inputFile);
+             FileWriter outputFile = new FileWriter(outputFileStr);
              JsonParser parser = factory.createParser(is, StandardCharsets.UTF_8)) {
 
             JsonParser.Event previousEvent = null;
