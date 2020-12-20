@@ -64,7 +64,7 @@ public class App
                         previousKey = key;
                         break;
                     case VALUE_STRING:
-                        String string = parser.getString();
+                        String string = parser.getString().replace("\\","\\\\");
                         System.out.print("\"" + string + "\"");
                         previousEvent = JsonParser.Event.VALUE_STRING;
                         if (previousKey != null && previousKey.equals("MD5")) {
