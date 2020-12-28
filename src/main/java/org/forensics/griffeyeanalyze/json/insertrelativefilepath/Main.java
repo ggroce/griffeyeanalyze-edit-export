@@ -30,7 +30,7 @@ public class Main
                 inputFile.getName().replaceFirst("[.][^.]+$", "") + "_output.json";
 
         try (FileInputStream is = new FileInputStream(inputFile);
-             FileWriter outputFile = new FileWriter(outputFileStr);
+             FileWriter outputFile = new FileWriter((outputFileStr), StandardCharsets.UTF_8);
              JsonParser parser = factory.createParser(is, StandardCharsets.UTF_8)) {
 
             JsonParser.Event previousEvent = null;

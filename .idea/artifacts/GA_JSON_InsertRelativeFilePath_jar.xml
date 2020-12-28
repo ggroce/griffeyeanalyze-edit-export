@@ -3,11 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/GA_JSON_InsertRelativeFilePath_jar</output-path>
     <root id="archive" name="GA_JSON_InsertRelativeFilePath.jar">
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/resources/META-INF/MANIFEST.MF" />
       </element>
       <element id="module-output" name="GA_JSON_InsertRelativeFilePath" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.1/javax.json-1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/json/javax.json-api/1.1/javax.json-api-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.1/javax.json-1.1.jar" path-in-jar="/" />
       <element id="library" level="project" name="Maven: javax.json:javax.json-api:1.1" />
       <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.1" />
     </root>
