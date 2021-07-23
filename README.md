@@ -1,5 +1,5 @@
 # GA_JSON_InsertRelativeFilePath
-JSON editor, enabling the export of media files along with file metadata details from Griffeye Analyze.  
+JSON editor, enabling the export of media files along with file metadata details from Griffeye Analyze.  Inserts the relativefilepath property to an exported JSON file, based on the contents of an accompanying file directory containing filenames named by their respective MD5 hash.  
 
 Step 1: The user must export all desired media files to a single directory named "Files", with filesnames representing their MD5.  
 Step 2: The user must remove any file extensions generated from step 1, (windows commandline from directory containing files: "ren * *.").  
